@@ -1,6 +1,12 @@
 import type { LinkItem } from "@/lib/data";
 
-export default function LinkCard({ link }: { link: LinkItem }) {
+export default function LinkCard({
+  link,
+  count,
+}: {
+  link: LinkItem;
+  count: number;
+}) {
   return (
     <a
       href={`/api/click/${link.id}`}
@@ -10,6 +16,9 @@ export default function LinkCard({ link }: { link: LinkItem }) {
       <span className="pointer-events-none absolute bottom-3 right-10 h-3 w-3 rounded-full bg-black/25 blur-[1px]" />
       <span className="pointer-events-none absolute right-16 top-3 h-1.5 w-1.5 rounded-full bg-black/20" />
       <span className="relative">{link.label}</span>
+      <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-xs font-normal text-slate-300/70">
+        {count}회
+      </span>
     </a>
   );
 }
