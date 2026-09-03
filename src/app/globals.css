@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Maplestory";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Maplestory-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Maplestory";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Maplestory-Bold.woff2") format("woff2");
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #05070d;
+  --foreground: #f4f6fb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: "Maplestory", var(--font-geist-sans), sans-serif;
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Maplestory", var(--font-geist-sans), ui-sans-serif, system-ui,
+    sans-serif;
+}
+
+@keyframes avatar-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+}
+
+.avatar-glow {
+  animation: avatar-glow-pulse 4s ease-in-out infinite;
 }

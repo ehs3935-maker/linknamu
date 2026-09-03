@@ -4,9 +4,12 @@ export default function LinkCard({ link }: { link: LinkItem }) {
   return (
     <a
       href={`/api/click/${link.id}`}
-      className="flex w-full items-center justify-center rounded-xl border border-zinc-200 bg-white px-5 py-4 text-center font-medium text-zinc-900 shadow-sm transition-colors hover:border-zinc-300 hover:bg-zinc-50 active:scale-[0.99] dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-800"
+      className="relative flex w-full items-center justify-center overflow-hidden rounded-full bg-[linear-gradient(135deg,#7a828f_0%,#4c525e_28%,#282c34_62%,#131519_100%)] px-8 py-5 text-center text-base font-bold tracking-wide text-slate-100 shadow-[inset_-6px_-10px_16px_rgba(0,0,0,0.55),inset_6px_6px_10px_rgba(255,255,255,0.14),0_10px_22px_rgba(0,0,0,0.55)] transition-transform duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0"
     >
-      {link.label}
+      <span className="pointer-events-none absolute left-7 top-2 h-2 w-8 -rotate-12 rounded-full bg-white/15 blur-[2px]" />
+      <span className="pointer-events-none absolute bottom-3 right-10 h-3 w-3 rounded-full bg-black/25 blur-[1px]" />
+      <span className="pointer-events-none absolute right-16 top-3 h-1.5 w-1.5 rounded-full bg-black/20" />
+      <span className="relative">{link.label}</span>
     </a>
   );
 }
