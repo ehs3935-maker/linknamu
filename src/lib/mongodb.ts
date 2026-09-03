@@ -10,9 +10,9 @@ let clientPromise: Promise<MongoClient> | undefined;
 export function getMongoClientPromise(): Promise<MongoClient> {
   if (clientPromise) return clientPromise;
 
-  const uri = process.env.MONGODB_URI;
+  const uri = process.env.MONGODB_URL;
   if (!uri) {
-    throw new Error("MONGODB_URI 환경 변수가 설정되어 있지 않습니다 (.env.local 확인)");
+    throw new Error("MONGODB_URL 환경 변수가 설정되어 있지 않습니다 (.env.local 확인)");
   }
 
   if (process.env.NODE_ENV === "development") {
